@@ -63,19 +63,24 @@ return {
         lsp_zero.default_keymaps({buffer = bufnr})
       end)
 
-      require('mason-lspconfig').setup({
-        ensure_installed = { 'tsserver', 'jsonls', 'html', 'cssls', 'bashls', 'vimls',
+            require('mason-lspconfig').setup({
+                ensure_installed = { 'tsserver', 'jsonls', 'html', 'cssls', 'bashls', 'vimls',
                     'pyright', 'rust_analyzer', 'vuels', 'graphql', 'tailwindcss',
-                    'svelte', 'eslint', 'clangd', 'omnisharp'},
-        handlers = {
-          lsp_zero.default_setup,
-          lua_ls = function()
-            -- (Optional) Configure lua language server for neovim
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
-          end,
-        }
-      })
+                    'svelte', 'eslint', 'omnisharp'},
+
+                require'lspconfig'.clangd.setup{
+                    on_attach = on_attach,
+                    single_file_support = true,},
+
+                handlers = {
+                    lsp_zero.default_setup,
+                    lua_ls = function()
+                        -- (Optional) Configure lua language server for neovim
+                        local lua_opts = lsp_zero.nvim_lua_ls()
+                        require('lspconfig').lua_ls.setup(lua_opts)
+                    end,
+                }
+            })
     end
   }
 }
