@@ -3,3 +3,5 @@ require("madyn.lazy")
 require("madyn.set")
 
 print("Hello Madyn")
+
+-- vim.cmd[[colorscheme tokyonight]]
