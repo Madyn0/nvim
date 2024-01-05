@@ -15,7 +15,6 @@ return {
             vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
             vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
             vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
-            vim.keymap.set('n', '<leader>fcs', builtin.colorscheme, {})
             vim.keymap.set('n', '<leader><Space>', builtin.current_buffer_fuzzy_find, {})
         end
     },

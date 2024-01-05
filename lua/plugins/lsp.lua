@@ -35,6 +35,10 @@ return {
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 				single_file_support = true,
 			})
+            lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+				hint = { enabled = true },
+            })
 			lspconfig.pyright.setup({})
 
 			on_attach = function(client, bufnr)
