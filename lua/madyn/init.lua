@@ -4,4 +4,4 @@ require("madyn.set")
 
 print("Hello Madyn")
 
-vim.cmd[[colorscheme tokyonight]]
+-- vim.cmd[[colorscheme tokyonight]]
