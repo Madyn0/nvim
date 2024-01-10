@@ -39,13 +39,19 @@ return {
 				capabilities = capabilities,
 				hint = { enabled = true },
 			})
-			-- lspconfig.html.setup({
-			-- 	capabilities = capabilities,
-			-- })
-			-- lspconfig.htmx.setup({
-			-- 	capabilities = capabilities,
-			-- })
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.htmx.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.pyright.setup({})
+            lspconfig.jsonls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.tsserver.setup({
+                capabilities = capabilities,
+            })
 
 			on_attach = function(client, bufnr)
 				if client.server_capabilities.inlayHintProvider then
