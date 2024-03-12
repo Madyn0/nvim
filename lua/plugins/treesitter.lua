@@ -11,6 +11,7 @@ return {
                 "cpp",
                 "make",
                 "python",
+                "ruby"
             },
             sync_install = false,
             auto_install = true,
