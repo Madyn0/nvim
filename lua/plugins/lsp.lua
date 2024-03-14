@@ -23,7 +23,6 @@ return {
                     "solargraph",
                     "rubocop",
                     "tailwindcss",
-                    "ruby_ls",
                 },
             })
         end,
@@ -33,10 +32,6 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
-            lspconfig.ruby_ls.setup({
-                capabilities = capabilities,
-                hint = { enabled = true },
-            })
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
                 hint = { enabled = true },
@@ -88,7 +83,6 @@ return {
                 hint = { enabled = true },
             })
 
-
             on_attach = function(client, bufnr)
                 if client.server_capabilities.inlayHintProvider then
                     vim.lsp.inlay_hint.enable(bufnr, true)
@@ -99,6 +93,12 @@ return {
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
             vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+
+            -- Removes the underline from diagnostics
+            vim.lsp.handlers["textDocument/publishDiagnostics"] =
+                vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+                    underline = false,
+                })
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
