@@ -107,7 +107,7 @@ return {
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
                     if vim.lsp.inlay_hint then
-                        vim.keymap.set("n", "<leader>uh", function()
+                        vim.keymap.set("n", "<leader>ih", function()
                             vim.lsp.inlay_hint.enable(0, true)
                         end, { desc = "Toggle inlay hints" })
                     end
