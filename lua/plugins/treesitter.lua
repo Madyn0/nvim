@@ -11,12 +11,29 @@ return {
                 "cpp",
                 "make",
                 "python",
-                "ruby"
+                "ruby",
+                "css",
+                "html",
+                "javascript",
+                "json",
+                "yaml",
+                "bash",
+                "go",
+                "rust",
+                "rasi",
+                "toml",
+                "hyprlang",
             },
             sync_install = false,
             auto_install = true,
             highlight = { enable = true },
             indent = { enable = true },
+            vim.filetype.add({
+                pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+            }),
+            vim.filetype.add({
+                pattern = { [".*/rofi/.*%.rasi"] = "rasi" },
+            }),
         })
     end,
 }

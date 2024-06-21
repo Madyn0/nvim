@@ -13,16 +13,12 @@ return {
                     "lua_ls",
                     "clangd",
                     "cssls",
-                    "eslint",
                     "html",
                     "jsonls",
-                    "tsserver",
-                    "autotools_ls",
                     "pyright",
                     "rust_analyzer",
                     "solargraph",
                     "rubocop",
-                    "tailwindcss",
                 },
             })
         end,
@@ -62,9 +58,9 @@ return {
                 capabilities = capabilities,
                 hint = { enabled = true },
             })
-            lspconfig.tailwindcss.setup({
-                capabilities = capabilities,
-                hint = { enabled = true },
+            lspconfig.hyprls.setup({
+                cmd = { "hyprls", "--stdio" },
+                filetypes = { "*.hl", "hypr*.conf", ".config/hypr/*.conf" },
             })
             lspconfig.solargraph.setup({
                 capabilities = capabilities,
@@ -82,6 +78,10 @@ return {
                 capabilities = capabilities,
                 hint = { enabled = true },
             })
+            lspconfig.stylelint_lsp.setup({
+                capabilities = capabilities,
+                hint = { enabled = true },
+            })
 
             on_attach = function(client, bufnr)
                 if client.server_capabilities.inlayHintProvider then
@@ -93,6 +93,19 @@ return {
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
             vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+
+            -- Hyprlang LSP
+            vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+                pattern = { "*.hl", "hypr*.conf" },
+                callback = function(event)
+                    print(string.format("starting hyprls for %s", vim.inspect(event)))
+                    vim.lsp.start {
+                        name = "hyprlang",
+                        cmd = { "hyprls" },
+                        root_dir = vim.fn.getcwd(),
+                    }
+                end
+            })
 
             -- Removes the underline from diagnostics
             vim.lsp.handlers["textDocument/publishDiagnostics"] =
