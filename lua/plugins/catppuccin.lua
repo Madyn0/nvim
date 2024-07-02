@@ -11,7 +11,7 @@ return {
 				no_italic = true,
 				no_underline = true,
 			})
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 }

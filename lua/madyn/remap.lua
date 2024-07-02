@@ -1,4 +1,8 @@
+-- Leader key is set to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- This brings up `netrw` in the current directory
 vim.keymap.set("n", "<leader>f<space>", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- These two lines will move the line up and down in visual mode
@@ -31,4 +35,4 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- This line will allow you to replace the word under the cursor
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })              --
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })              --

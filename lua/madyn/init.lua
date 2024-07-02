@@ -1,7 +1,10 @@
 require("madyn.remap")
-require("madyn.lazy")
 require("madyn.set")
 
-print("Hello Madyn")
+-- This must be loaded after the remap and set
+require("madyn.lazy")
+
+-- For fun
+print("Welcome Back Madyn")
 
 -- vim.cmd[[colorscheme tokyonight]]

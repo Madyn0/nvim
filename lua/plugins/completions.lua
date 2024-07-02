@@ -1,6 +1,8 @@
-return {
-    {
+return { {
         "hrsh7th/cmp-nvim-lsp",
+    },
+    {
+        "onsails/lspkind.nvim",
     },
     {
         "L3MON4D3/LuaSnip",
@@ -13,10 +15,19 @@ return {
         "hrsh7th/nvim-cmp",
         config = function()
             local cmp = require("cmp")
-            local luasnip= require("luasnip")
+            local luasnip = require("luasnip")
+            local lspkind = require("lspkind")
             require("luasnip.loaders.from_vscode").lazy_load()
 
+            -- Color
+            vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { fg='#c4a7e7' })
+            vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link='CmpIntemAbbrMatch' })
+
             cmp.setup({
+                formatting = {
+                    format = lspkind.cmp_format(),
+                    -- format = lspkind.cmp_format({ with_text = true, maxwidth = 50 }),
+                },
                 snippet = {
                     expand = function(args)
                         require("luasnip").lsp_expand(args.body)
@@ -33,9 +44,15 @@ return {
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<C-Space>"] = cmp.mapping.confirm({ select = true }),
                 }),
-                vim.keymap.set({ "i" }, "<C-K>", function() luasnip.expand() end, { silent = true }),
-                vim.keymap.set({ "i", "s" }, "<C-L>", function() luasnip.jump(1) end, { silent = true }),
-                vim.keymap.set({ "i", "s" }, "<C-J>", function() luasnip.jump(-1) end, { silent = true }),
+                vim.keymap.set({ "i" }, "<C-K>", function()
+                    luasnip.expand()
+                end, { silent = true }),
+                vim.keymap.set({ "i", "s" }, "<C-L>", function()
+                    luasnip.jump(1)
+                end, { silent = true }),
+                vim.keymap.set({ "i", "s" }, "<C-J>", function()
+                    luasnip.jump(-1)
+                end, { silent = true }),
 
                 vim.keymap.set({ "i", "s" }, "<C-E>", function()
                     if luasnip.choice_active() then
