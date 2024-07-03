@@ -16,23 +16,24 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv") -- These two lines will center the screen when searching
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("x", "<leader>p", [["_dP]])       -- This will paste over the current selection and keep deleted words in the register
+vim.keymap.set("x", "<leader>p", [["_dP]])         -- This will paste over the current selection and keep deleted words in the register
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- This line will copy to the system clipboard
-vim.keymap.set("n", "<leader>Y", [["+Y]])        -- This line will copy to the system clipboard
+vim.keymap.set("n", "<leader>Y", [["+Y]])          -- This line will copy to the system clipboard
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]]) -- This line will delete to the black hole register
 
-vim.keymap.set("i", "<C-c>", "<Esc>")            -- This line will allow you to exit insert mode with ctrl-c
+vim.keymap.set("i", "<C-c>", "<Esc>")              -- This line will allow you to exit insert mode with ctrl-c
 
 vim.keymap.set("n", "Q", "<nop>")
--- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format) -- This line will format the current buffer
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")     -- These two lines will allow you to go to the next and previous quickfix errors
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+-- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format) -- This line will format the current buffer
+
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz") -- These two lines will allow you to go to the next and previous quickfix errors
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- This line will allow you to replace the word under the cursor
--- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })              --
+
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })

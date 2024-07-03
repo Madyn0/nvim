@@ -1,5 +1,9 @@
 local opt = vim.opt
 
+local function augroup(name)
+    return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
 -- Get block cursor in all modes
 opt.guicursor = ""
 
@@ -42,3 +46,10 @@ opt.updatetime = 50
 
 opt.colorcolumn = "80"
 
+-- Highlight yanked text
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = augroup("highlight_yank"),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
