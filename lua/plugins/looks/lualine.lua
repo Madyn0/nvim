@@ -13,10 +13,10 @@ return {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {{'filename',path = 1},'progress'},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = {{'filename',path = 1,},'progress'},
+    lualine_y = {'branch', 'diff', 'diagnostics',},
     lualine_z = {'location'}
   },
   inactive_sections = {
