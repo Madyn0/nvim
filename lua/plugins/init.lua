@@ -11,7 +11,6 @@ return {
 	require("plugins.navigation.harpoon"),
 	require("plugins.navigation.telescope"),
 	require("plugins.navigation.telescope_fzf"),
-	require("plugins.navigation.telescope_rails"),
 	require("plugins.navigation.telescope_ui_select"),
 
 	-- Colorschemes
