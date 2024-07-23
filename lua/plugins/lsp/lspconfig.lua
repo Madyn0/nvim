@@ -68,16 +68,6 @@ return {
 			end,
 		})
 
-		-- For Ruby on Rails
-		lsp.solargraph.setup({
-			capabilities = capabilities,
-			settings = {
-				solargraph = {
-					diagnostics = false,
-				},
-			},
-		})
-
 		-- For Hyprland config files
 		lsp.hyprls.setup({
 			capabilities = capabilities,

@@ -9,19 +9,19 @@ return {
 			formatters_by_ft = {
 				ruby = { "rubocop" },
 				lua = { "stylua" },
-                erb = { "erb_format", "htmlbeautifier" },
+				erb = { "erb_format", "htmlbeautifier" },
 				python = { "isort", "black" },
-                javascript = { "prettier" },
-                css = { "prettier" },
-                html = { "prettier" },
-                json = { "prettier" },
-                yaml = { "prettier" },
-                markdown = { "prettier" },
+				javascript = { "prettier" },
+				css = { "prettier" },
+				html = { "prettier" },
+				json = { "prettier" },
+				yaml = { "prettier" },
+				markdown = { "prettier" },
 			},
 		})
 	end,
 
-    -- Keybind to format
+	-- Keybind to format
 	vim.api.nvim_set_keymap(
 		"n",
 		"<space>f",

@@ -37,7 +37,7 @@ return {
 					"isort",
 					"black",
                     "pylint",
-					-- "rubocop",
+					"rubocop",
 					"hyprls",
                     "erb-lint",
                     "erb-formatter",
