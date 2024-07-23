@@ -14,6 +14,6 @@ return {
             -- disable_italics = true,
 
         })
-        vim.cmd.colorscheme "rose-pine"
+        -- vim.cmd.colorscheme "rose-pine"
     end
 }
