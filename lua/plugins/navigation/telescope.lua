@@ -50,6 +50,12 @@ return {
 			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Libs >", cwd = vim.fn.getcwd() .. "/app/lib", hidden = true })<CR>',
 			{ noremap = true, silent = true }
 		)
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>rj",
+			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Jobs >", cwd = vim.fn.getcwd() .. "/app/jobs", hidden = true })<CR>',
+			{ noremap = true, silent = true }
+		)
 
 		-- Help
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
