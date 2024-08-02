@@ -2,66 +2,25 @@ return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
 
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"Madyn0/rails-finder.nvim",
+	},
+
+	keys = {
+		{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
+		{ "<leader>fg", "<cmd>Telescope live_grep<cr>" },
+		{ "<leader><Space>", "<cmd>Telescope current_buffer_fuzzy_find<cr>" },
+		{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
+		{ "<leader>fc", "<cmd>Telescope colorscheme<cr>" },
+	},
+
 	config = function()
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("ui-select")
+		require("telescope").load_extension("rails")
 
 		local builtin = require("telescope.builtin")
-
-		-- File navigation
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-		vim.keymap.set("n", "<leader><Space>", builtin.current_buffer_fuzzy_find, {})
-
-		-- Rails navigation
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>rt",
-			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Tests >", cwd = vim.fn.getcwd() .. "/spec", hidden = true })<CR>',
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>rc",
-			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Controllers >", cwd = vim.fn.getcwd() .. "/app/controllers", hidden = true })<CR>',
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>rm",
-			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Models >", cwd = vim.fn.getcwd() .. "/app/models", hidden = true })<CR>',
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>rv",
-			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Views >", cwd = vim.fn.getcwd() .. "/app/views", hidden = true })<CR>',
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>ri",
-			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Migrations >", cwd = vim.fn.getcwd() .. "/db/migrate", hidden = true })<CR>',
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>rl",
-			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Libs >", cwd = vim.fn.getcwd() .. "/app/lib", hidden = true })<CR>',
-			{ noremap = true, silent = true }
-		)
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>rj",
-			':lua require("telescope.builtin").find_files({ prompt_title = "< Rails Jobs >", cwd = vim.fn.getcwd() .. "/app/jobs", hidden = true })<CR>',
-			{ noremap = true, silent = true }
-		)
-
-		-- Help
-		vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-
-		-- For fun
-		vim.keymap.set("n", "<leader>fc", builtin.colorscheme, {})
 
 		-- Need to sort out what I need here
 		vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {})
