@@ -10,6 +10,9 @@ opt.guicursor = ""
 -- Remove banner for netrw
 vim.cmd("let g:netrw_banner = 0")
 
+-- Set conceall level
+vim.opt.conceallevel = 1
+
 -- Get relative line numbers
 opt.nu = true
 opt.relativenumber = true
@@ -21,8 +24,8 @@ opt.expandtab = true
 
 opt.smartindent = true
 
--- Highlight current line (maybe keep)
--- opt.cursorline = true
+-- Highlight current line (Trying it out)
+opt.cursorline = true
 
 opt.wrap = false
 
