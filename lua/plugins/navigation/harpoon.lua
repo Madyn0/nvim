@@ -1,41 +1,59 @@
 return {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
+	"ThePrimeagen/harpoon",
 
-    config = function()
-        local harpoon = require("harpoon")
-        harpoon:setup()
+	branch = "harpoon2",
+	dependencies = { "nvim-lua/plenary.nvim" },
 
-        -- Using Telescope to list the files
-        local conf = require("telescope.config").values
-        local function toggle_telescope(harpoon_files)
-            local file_paths = {}
-            for _, item in ipairs(harpoon_files.items) do
-                table.insert(file_paths, item.value)
-            end
+	config = function()
+		local harpoon = require("harpoon")
+		harpoon:setup()
 
-            require("telescope.pickers").new({}, {
-                prompt_title = "Harpoon",
-                finder = require("telescope.finders").new_table({
-                    results = file_paths,
-                }),
-                previewer = conf.file_previewer({}),
-                sorter = conf.generic_sorter({}),
-            }):find()
-        end
+		-- Using Telescope to list the files
+		local conf = require("telescope.config").values
+		local function toggle_telescope(harpoon_files)
+			local file_paths = {}
+			for _, item in ipairs(harpoon_files.items) do
+				table.insert(file_paths, item.value)
+			end
 
-        vim.keymap.set("n", "<leader>e", function() toggle_telescope(harpoon:list()) end,
-            { desc = "Open harpoon window" })
+			require("telescope.pickers")
+				.new({}, {
+					prompt_title = "Harpoon",
+					finder = require("telescope.finders").new_table({
+						results = file_paths,
+					}),
+					previewer = conf.file_previewer({}),
+					sorter = conf.generic_sorter({}),
+				})
+				:find()
+		end
 
-        -- Keybindings
+		-- Keybindings
+		local map = vim.keymap.set
 
-        vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-        vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+		map("n", "<leader>e", function()
+			toggle_telescope(harpoon:list())
+		end)
 
-        vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-        vim.keymap.set("n", "<C-n>", function() harpoon:list():select(2) end)
-        vim.keymap.set("n", "<C-t>", function() harpoon:list():select(3) end)
-        vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
-    end
+		map("n", "<C-e>", function()
+			harpoon.ui:toggle_quick_menu(harpoon:list())
+		end)
 
+		map("n", "<leader>a", function()
+			harpoon:list():add()
+		end)
+
+		map("n", "<C-h>", function()
+			harpoon:list():select(1)
+		end)
+		map("n", "<C-n>", function()
+			harpoon:list():select(2)
+		end)
+		map("n", "<C-t>", function()
+			harpoon:list():select(3)
+		end)
+		map("n", "<C-s>", function()
+			harpoon:list():select(4)
+		end)
+	end,
 }
