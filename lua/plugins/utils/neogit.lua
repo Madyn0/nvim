@@ -1,8 +1,11 @@
 return {
 	"NeogitOrg/neogit",
 
-  lazy = true,
+	dependencies = { "nvim-lua/plenary.nvim" },
+
+	lazy = true,
 	opts = {},
+
 	keys = {
 		{ "<leader>ng", "<cmd> Neogit <cr>" },
 		{ "<leader>ngc", "<cmd> Neogit commit <cr>" },
