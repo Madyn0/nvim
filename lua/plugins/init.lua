@@ -33,7 +33,7 @@ return {
 	require("plugins.lsp.lspconfig"),
 	require("plugins.lsp.completions"),
 	require("plugins.lsp.formatting"),
-	require("plugins.lsp.none_ls"),
+	require("plugins.lsp.null_ls"),
 
 	-- Meh
 	require("plugins.meh.undotree"),
