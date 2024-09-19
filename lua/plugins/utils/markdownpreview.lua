@@ -1,13 +1,12 @@
 return {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-        vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
+	"iamcco/markdown-preview.nvim",
 
-    config = function()
-        vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
-    end
+	ft = { "markdown" },
+	build = "cd app && yarn install",
+	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+
+	config = function()
+		vim.g.mkdp_filetypes = { "markdown" }
+		vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
+	end,
 }
