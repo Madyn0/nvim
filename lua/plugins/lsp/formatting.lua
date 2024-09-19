@@ -10,6 +10,7 @@ return {
 				ruby = { "rubocop" },
 				lua = { "stylua" },
 				erb = { "erb_format", "htmlbeautifier" },
+				eruby = { "erb_format", "htmlbeautifier" },
 				python = { "isort", "black" },
 				javascript = { "prettier" },
 				css = { "prettier" },
@@ -17,6 +18,9 @@ return {
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
+			},
+			options = {
+				prettier = { args = { "--tab-width", "2" } },
 			},
 		})
 	end,

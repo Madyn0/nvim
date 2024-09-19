@@ -68,28 +68,10 @@ return {
 			end,
 		})
 
-        -- local solargraph_cmd = vim.fn.expand("/home/madyn/.rvm/gems/ruby-3.1.6@plentify/bin/solargraph")
-        -- lsp.solargraph.setup({
-        --     capabilities = capabilities,
-        --     cmd = { solargraph_cmd, "stdio" },
-        --     filetypes = { "ruby" },
-        --     settings = {
-        --         solargraph = {
-        --             diagnostics = true,
-        --             -- completion = true,
-        --             -- folding = true,
-        --             -- references = true,
-        --             -- rename = true,
-        --             -- symbols = true,
-        --             -- hover = true,
-        --             -- autoformat = true,
-        --         },
-        --     },
-        -- })
-
 		-- For Hyprland config files
 		lsp.hyprls.setup({
 			capabilities = capabilities,
 		})
+
 	end,
 }
