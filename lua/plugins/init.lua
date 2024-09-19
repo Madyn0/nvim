@@ -22,7 +22,6 @@ return {
 	-- Utilities
 	require("plugins.utils.copilot"),
 	require("plugins.utils.markdownpreview"),
-	require("plugins.utils.diffview"),
 	require("plugins.utils.neogit"),
 	require("plugins.utils.gitsigns"),
 	require("plugins.utils.obsidian"),
