@@ -1,12 +1,12 @@
 return {
 	"NeogitOrg/neogit",
 
-	config = function()
-		local neogit = require("neogit")
-		neogit.setup({})
-		vim.keymap.set("n", "<leader>ng", ": Neogit <cr>")
-		vim.keymap.set("n", "<leader>ngc", ": Neogit commit <cr>")
-		vim.keymap.set("n", "<leader>ngb", ": Neogit branch <cr>")
-		vim.keymap.set("n", "<leader>ngp", ": Neogit push <cr>")
-	end,
+  lazy = true,
+	opts = {},
+	keys = {
+		{ "<leader>ng", "<cmd> Neogit <cr>" },
+		{ "<leader>ngc", "<cmd> Neogit commit <cr>" },
+		{ "<leader>ngb", "<cmd> Neogit branch <cr>" },
+		{ "<leader>ngp", "<cmd> Neogit push <cr>" },
+	},
 }
