@@ -5,8 +5,11 @@ return {
 	build = "cd app && yarn install",
 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 
-	config = function()
+	keys = {
+		{ "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>" },
+	},
+
+	init = function()
 		vim.g.mkdp_filetypes = { "markdown" }
-		vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>")
 	end,
 }
