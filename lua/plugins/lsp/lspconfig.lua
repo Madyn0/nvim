@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+
 	event = { "BufReadPre", "BufNewFile" },
 
 	config = function()
@@ -16,34 +17,15 @@ return {
 				local opts = { buffer = ev.buf, silent = true }
 
 				-- Keybindings for LSP
-				opts.desc = "Go to Declaration"
 				set("n", "gD", vim.lsp.buf.declaration, opts)
-
-				opts.desc = "Go to Definition"
 				set("n", "gd", vim.lsp.buf.definition, opts)
-
-				opts.desc = "Go to Implementation"
 				set("n", "gi", vim.lsp.buf.implementation, opts)
-
-				opts.desc = "Go to Type Definition"
 				set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-
-				opts.desc = "Go to References"
 				set("n", "gr", vim.lsp.buf.references, opts)
-
-				opts.desc = "Hover"
 				set("n", "K", vim.lsp.buf.hover, opts)
-
-				opts.desc = "Show Signature Help"
 				set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-
-				opts.desc = "Rename"
 				set("n", "<space>rn", vim.lsp.buf.rename, opts)
-
-				opts.desc = "Show line diagnostics"
 				set("n", "<space>d", vim.diagnostic.open_float)
-
-				opts.desc = "Show code actions"
 				set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 			end,
 		})
@@ -73,5 +55,12 @@ return {
 			capabilities = capabilities,
 		})
 
+		lsp.rubocop.setup({
+			capabilities = capabilities,
+		})
+
+		lsp.ruby_lsp.setup({
+			capabilities = capabilities,
+		})
 	end,
 }

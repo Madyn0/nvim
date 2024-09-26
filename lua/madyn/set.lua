@@ -23,6 +23,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 
 opt.smartindent = true
+opt.autoindent = true
 
 -- Highlight current line (Trying it out)
 opt.cursorline = true

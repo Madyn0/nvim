@@ -1,13 +1,15 @@
 return {
 	"hrsh7th/nvim-cmp",
+
 	event = "InsertEnter",
+
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
-		"onsails/lspkind.nvim",
+    "onsails/lspkind.nvim",
+    "hrsh7th/cmp-nvim-lsp",
 	},
 
 	config = function()
