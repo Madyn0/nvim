@@ -1,19 +1,18 @@
 return {
-    "rose-pine/neovim",
+	"rose-pine/neovim",
 
-    name = "rose-pine",
-    priority = 1000,
-    lazy = false,
+  enabled = false,
 
-    config = function()
-        require("rose-pine").setup({
-            variant = "main",
-            dark_variant = "main",
-            disable_background = true,
-            disable_float_background = true,
-            -- disable_italics = true,
+	name = "rose-pine",
+	priority = 1000,
+	lazy = false,
 
-        })
-        -- vim.cmd.colorscheme "rose-pine"
-    end
+	opts = {
+		variant = "main",
+		dark_variant = "main",
+		disable_background = true,
+		disable_float_background = true,
+		-- disable_italics = true,
+	},
+	-- vim.cmd.colorscheme "rose-pine"
 }

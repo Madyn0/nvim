@@ -17,7 +17,6 @@ return {
 	require("plugins.colorschemes.rose-pine"),
 	require("plugins.colorschemes.catppuccin"),
 	require("plugins.colorschemes.tokyonight"),
-	require("plugins.colorschemes.onedark"),
 
 	-- Utilities
 	require("plugins.utils.copilot"),
