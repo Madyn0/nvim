@@ -1,7 +1,11 @@
--- return {
---     "prichrd/netrw.nvim",
---
---     config = function()
---         require("netrw").setup()
---     end
--- }
+return {
+	"prichrd/netrw.nvim",
+
+  event = "BufEnter",
+
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
+
+	opts = {},
+}

@@ -3,15 +3,13 @@
 return {
 	-- Looks
 	require("plugins.looks.noice"),
+	require("plugins.looks.netrw"),
 	require("plugins.looks.notify"),
 	require("plugins.looks.lualine"),
-	require("plugins.looks.nvim_web_devicons"),
 
 	-- Navigation
 	require("plugins.navigation.harpoon"),
 	require("plugins.navigation.telescope"),
-	require("plugins.navigation.telescope_fzf"),
-	require("plugins.navigation.telescope_ui_select"),
 
 	-- Colorschemes
 	require("plugins.colorschemes.rose-pine"),
@@ -19,22 +17,22 @@ return {
 	require("plugins.colorschemes.tokyonight"),
 
 	-- Utilities
+  require("plugins.utils.neogit"),
 	require("plugins.utils.copilot"),
-	require("plugins.utils.markdownpreview"),
-	require("plugins.utils.neogit"),
 	require("plugins.utils.gitsigns"),
 	require("plugins.utils.obsidian"),
+  require("plugins.utils.markdownpreview"),
 
 	-- LSP
-	require("plugins.lsp.treesitter"),
 	require("plugins.lsp.mason"),
+  require("plugins.lsp.null_ls"),
 	require("plugins.lsp.lspconfig"),
-	require("plugins.lsp.completions"),
 	require("plugins.lsp.formatting"),
-	require("plugins.lsp.null_ls"),
+  require("plugins.lsp.treesitter"),
+  require("plugins.lsp.completions"),
 
 	-- Meh
+  require("plugins.meh.comment"),
 	require("plugins.meh.undotree"),
 	require("plugins.meh.autopairs"),
-	require("plugins.meh.comment"),
 }

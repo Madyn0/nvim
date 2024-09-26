@@ -3,8 +3,8 @@ return {
 
 	dependencies = { "nvim-lua/plenary.nvim" },
 
-	lazy = true,
 	opts = {},
+  event = "VeryLazy",
 
 	keys = {
 		{ "<leader>ng", "<cmd> Neogit <cr>" },

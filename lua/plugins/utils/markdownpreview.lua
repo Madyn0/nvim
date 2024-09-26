@@ -8,8 +8,4 @@ return {
 	keys = {
 		{ "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>" },
 	},
-
-	init = function()
-		vim.g.mkdp_filetypes = { "markdown" }
-	end,
 }

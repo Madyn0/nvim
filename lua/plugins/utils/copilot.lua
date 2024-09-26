@@ -1,10 +1,11 @@
 return {
 	"github/copilot.vim",
-	VeryLazy = true,
 
-	config = function()
-		vim.keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
-		vim.keymap.set("i", "<C-]>", "<Plug>(copilot-next)")
-		vim.keymap.set("i", "<C-[>", "<Plug>(copilot-previous)")
-	end,
+	event = "BufEnter",
+
+	keys = {
+		{ "<C-]>", "<Plug>(copilot-next)", mode = "i" },
+		{ "<C-[>", "<Plug>(copilot-previous)", mode = "i" },
+		{ "<C-L>", "<Plug>(copilot-accept-word)", mode = "i" },
+	},
 }
