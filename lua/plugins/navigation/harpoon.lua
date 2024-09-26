@@ -28,14 +28,15 @@ return {
 		end
 
 		-- Keybindings
+		local map = vim.keymap.set
 
-		vim.keymap.set("n", "<leader>e", function()
+		map("n", "<leader>e", function()
 			toggle_telescope(harpoon:list())
 		end)
 
-		vim.keymap.set("n", "<C-e>", function()
+		map("n", "<C-e>", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list(), {
-        height = 12, -- Set the height (Need to make adjustments in the local source code, for this to work here)
+				height = 12, -- Set the height (Need to make adjustments in the local source code, for this to work here)
 				ui_fallback_width = 80, -- Set the fallback width
 				ui_width_ratio = 0.9, -- Set the width ratio
 				ui_max_width = 78, -- Set the maximum width
@@ -44,20 +45,20 @@ return {
 				title_pos = "center", -- Position the title ("left", "center", "right")
 			})
 		end)
-		vim.keymap.set("n", "<leader>a", function()
+		map("n", "<leader>a", function()
 			harpoon:list():add()
 		end)
 
-		vim.keymap.set("n", "<C-h>", function()
+		map("n", "<C-h>", function()
 			harpoon:list():select(1)
 		end)
-		vim.keymap.set("n", "<C-n>", function()
+		map("n", "<C-n>", function()
 			harpoon:list():select(2)
 		end)
-		vim.keymap.set("n", "<C-t>", function()
+		map("n", "<C-t>", function()
 			harpoon:list():select(3)
 		end)
-		vim.keymap.set("n", "<C-s>", function()
+		map("n", "<C-s>", function()
 			harpoon:list():select(4)
 		end)
 	end,
