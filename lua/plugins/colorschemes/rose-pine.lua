@@ -1,7 +1,7 @@
 return {
 	"rose-pine/neovim",
 
-  enabled = false,
+  enabled = true,
 
 	name = "rose-pine",
 	priority = 1000,
@@ -14,5 +14,4 @@ return {
 		disable_float_background = true,
 		-- disable_italics = true,
 	},
-	-- vim.cmd.colorscheme "rose-pine"
 }

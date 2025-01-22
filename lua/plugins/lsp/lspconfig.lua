@@ -25,8 +25,9 @@ return {
 				set("n", "K", vim.lsp.buf.hover, opts)
 				set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 				set("n", "<space>rn", vim.lsp.buf.rename, opts)
-				set("n", "<space>d", vim.diagnostic.open_float)
+				set("n", "<space>d", vim.diagnostic.open_float, opts)
 				set("n", "<space>ca", vim.lsp.buf.code_action, opts)
+        -- set("n", "<space>f", vim.lsp.buf.format, opts)
 			end,
 		})
 
@@ -57,9 +58,18 @@ return {
 
 		lsp.rubocop.setup({
 			capabilities = capabilities,
+      settings = {
+        rubocop = {
+          configFile = vim.fn.expand("~/dotfiles/rubocop/config.yml"),
+        }
+      }
 		})
 
 		lsp.ruby_lsp.setup({
+			capabilities = capabilities,
+		})
+
+		lsp.solargraph.setup({
 			capabilities = capabilities,
 		})
 	end,

@@ -13,6 +13,7 @@ return {
 				null_ls.builtins.formatting.shfmt,
 				null_ls.builtins.diagnostics.stylelint,
 				null_ls.builtins.diagnostics.erb_lint.with({
+          command = "erb_lint",
 					args = {
 						"--stdin",
 						"$FILENAME",
