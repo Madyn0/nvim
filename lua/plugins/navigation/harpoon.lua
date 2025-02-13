@@ -34,12 +34,18 @@ return {
 			toggle_telescope(harpoon:list())
 		end)
 
+    require("harpoon").setup({
+    menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+    }
+})
+
 		map("n", "<C-e>", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list(), {
 				height = 12, -- Set the height (Need to make adjustments in the local source code, for this to work here)
 				ui_fallback_width = 80, -- Set the fallback width
 				ui_width_ratio = 0.9, -- Set the width ratio
-				ui_max_width = 78, -- Set the maximum width
+				ui_max_width = 88, -- Set the maximum width
 				border = "double", -- Set the border style ("single", "double", "rounded", etc.)
 				title = "My Harpoon Marks", -- Set a custom title
 				title_pos = "center", -- Position the title ("left", "center", "right")
