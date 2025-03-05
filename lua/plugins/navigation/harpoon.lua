@@ -42,7 +42,8 @@ return {
 
 		map("n", "<C-e>", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list(), {
-				height = 12, -- Set the height (Need to make adjustments in the local source code, for this to work here)
+				-- height = 20, -- Set the height (Need to make adjustments in the local source code, for this to work here)
+        height_in_lines = 12,
 				ui_fallback_width = 80, -- Set the fallback width
 				ui_width_ratio = 0.9, -- Set the width ratio
 				ui_max_width = 88, -- Set the maximum width
