@@ -7,14 +7,13 @@ return {
 	},
 
 	opts = {},
-	-- event = "VeryLazy",
-	lazy = false,
+	event = "VeryLazy",
 
 	keys = {
 		{ "<leader>ng", "<cmd> Neogit <cr>" },
-		{ "<leader>ngc", "<cmd> Neogit commit <cr>" },
-		{ "<leader>ngb", "<cmd> Neogit branch <cr>" },
-		{ "<leader>ngp", "<cmd> Neogit push <cr>" },
+		-- { "<leader>ngc", "<cmd> Neogit commit <cr>" },
+		-- { "<leader>ngb", "<cmd> Neogit branch <cr>" },
+		-- { "<leader>ngp", "<cmd> Neogit push <cr>" },
 	},
 
 	config = function()
