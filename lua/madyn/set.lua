@@ -57,3 +57,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.highlight.on_yank()
     end,
 })
+
+-- To support jbuilder files (syntax highlighting, lsp support, copilot)
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.jbuilder",
+  callback = function()
+    vim.bo.filetype = "ruby"
+  end,
+})
