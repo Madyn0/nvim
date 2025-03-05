@@ -27,8 +27,8 @@ return {
 				format = lspkind.cmp_format(),
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				-- completion = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -44,6 +44,7 @@ return {
 				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "cmdline" },
+				{ name = "vim_lsp_signature_help" },
 			}),
 		})
 

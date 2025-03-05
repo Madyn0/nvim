@@ -19,9 +19,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					-- "solargraph",
 					"pyright",
-          -- "ruby_lsp"
 				},
 			})
 		end,
@@ -40,8 +38,8 @@ return {
 					"pylint",
 					-- "rubocop",
 					"hyprls",
-					"erb-lint",
-					"erb-formatter",
+					-- "erb-lint",
+					-- "erb-formatter",
 					"eslint",
 					"htmlbeautifier",
 					"shfmt",

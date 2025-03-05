@@ -58,9 +58,12 @@ return {
 
 		lsp.rubocop.setup({
 			capabilities = capabilities,
+      init_options = {
+        configFile = "/home/madyn/dots/.config/rubocop/config.yml",
+      },
       settings = {
         rubocop = {
-          configFile = vim.fn.expand("~/dotfiles/rubocop/config.yml"),
+          configFile = vim.fn.expand("/home/madyn/dots/.config/rubocop/config.yml"),
         }
       }
 		})
@@ -69,8 +72,22 @@ return {
 			capabilities = capabilities,
 		})
 
-		lsp.solargraph.setup({
-			capabilities = capabilities,
-		})
+		-- lsp.solargraph.setup({
+		-- 	capabilities = capabilities,
+		-- })
+
+    lsp.html.setup({
+      capabilities = capabilities,
+      filetypes = { "html", "eruby", "erb" },
+      init_options = {
+        configurationSection = { "html", "css", "javascript", "erb", "eruby" },
+        embeddedLanguages = {
+          css = true,
+          javascript = true,
+          erb = true,
+          eruby = true,
+        },
+      },
+    })
 	end,
 }
