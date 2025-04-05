@@ -11,19 +11,23 @@ opt.guicursor = ""
 vim.cmd("let g:netrw_banner = 0")
 
 -- Set conceall level
-vim.opt.conceallevel = 1
+opt.conceallevel = 1
 
 -- Get relative line numbers
 opt.nu = true
 opt.relativenumber = true
 
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
+-- opt.tabstop = 2
+-- opt.softtabstop = 2
+-- opt.shiftwidth = 2
+-- opt.expandtab = true
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
 
-opt.smartindent = true
-opt.autoindent = true
+-- opt.smartindent = true
+-- opt.autoindent = true
 
 -- Highlight current line (Trying it out)
 opt.cursorline = true

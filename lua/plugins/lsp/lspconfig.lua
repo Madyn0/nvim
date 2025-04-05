@@ -58,17 +58,21 @@ return {
 
 		lsp.rubocop.setup({
 			capabilities = capabilities,
-      init_options = {
-        configFile = "/home/madyn/dots/.config/rubocop/config.yml",
-      },
-      settings = {
-        rubocop = {
-          configFile = vim.fn.expand("/home/madyn/dots/.config/rubocop/config.yml"),
-        }
-      }
+      -- init_options = {
+      --   configFile = "/home/madyn/dots/.config/rubocop/config.yml",
+      -- },
+      -- settings = {
+      --   rubocop = {
+      --     configFile = vim.fn.expand("/home/madyn/dots/.config/rubocop/config.yml"),
+      --   }
+      -- }
 		})
 
 		lsp.ruby_lsp.setup({
+			capabilities = capabilities,
+		})
+
+		lsp.clangd.setup({
 			capabilities = capabilities,
 		})
 

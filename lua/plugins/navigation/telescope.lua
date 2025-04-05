@@ -31,6 +31,7 @@ return {
 	config = function()
 		require("telescope").setup({
 			defaults = {
+        file_ignore_patterns = { "node_modules/", "vendor/", "app/assets/images" },
 				layout_strategy = "flex",
 				layout_config = {
 					width = 0.9,

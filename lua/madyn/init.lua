@@ -7,5 +7,5 @@ require("madyn.lazy")
 -- For fun
 print("Welcome Back Madyn")
 
-vim.cmd[[colorscheme tokyonight]]
--- vim.cmd[[colorscheme rose-pine]]
+-- vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme rose-pine]]

@@ -24,6 +24,7 @@ return {
   require("plugins.utils.markdownpreview"),
 
 	-- LSP
+  require("plugins.lsp.ruby"),
 	require("plugins.lsp.mason"),
   require("plugins.lsp.null_ls"),
 	require("plugins.lsp.lspconfig"),
