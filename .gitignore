@@ -40,3 +40,10 @@ luac.out
 *.hex
 .vs/
 .DS_Store
+
+# Node
+node_modules/
+package.json
+package-lock.json
+
+pack/

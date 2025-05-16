@@ -1,13 +1,13 @@
 return {
-	"rcarriga/nvim-notify",
+  "rcarriga/nvim-notify",
 
-	event = "VeryLazy",
+  event = "VeryLazy",
 
-	opts = {
-		render = "compact",
-		stages = "slide",
-		timeout = 5000,
-		background_highlight = "Normal",
-		background_colour = "#000000",
-	},
+  opts = {
+    render = "compact",
+    stages = "slide",
+    timeout = 5000,
+    background_highlight = "Normal",
+    background_colour = "#000000",
+  },
 }

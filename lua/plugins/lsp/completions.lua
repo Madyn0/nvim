@@ -1,70 +1,71 @@
 return {
-	"hrsh7th/nvim-cmp",
+  "saghen/blink.cmp",
 
-	event = "InsertEnter",
-
-	dependencies = {
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-path",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-cmdline",
+  dependencies = {
+    "rafamadriz/friendly-snippets",
     "onsails/lspkind.nvim",
-    "hrsh7th/cmp-nvim-lsp",
-	},
+    "nvim-tree/nvim-web-devicons",
+  },
 
-	config = function()
-		vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#c4a7e7" })
-		vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
+  version = "1.*",
 
-		local cmp = require("cmp")
-		local lspkind = require("lspkind")
-		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  opts = {
+    keymap = {
+      preset = "default",
 
-		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      ["<C-Space>"] = { "accept" },
+      ["<C-b>"] = { "scroll_documentation_down" },
+      ["<C-f>"] = { "scroll_documentation_up" },
+    },
 
-		cmp.setup({
-			formatting = {
-				format = lspkind.cmp_format(),
-			},
-			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-y>"] = cmp.mapping.complete(),
-				["<C-e>"] = cmp.mapping.abort(),
-				["<C-Space>"] = cmp.mapping.confirm({ select = true }),
-			}),
+    appearance = {
+      nerd_font_variant = "mono",
+    },
 
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-			}, {
-				{ name = "buffer" },
-				{ name = "path" },
-				{ name = "cmdline" },
-				{ name = "vim_lsp_signature_help" },
-			}),
-		})
+    completion = {
+      documentation = { auto_show = true },
 
-		-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-		cmp.setup.cmdline({ "/", "?" }, {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = {
-				{ name = "buffer" },
-			},
-		})
+      menu = {
+        draw = {
+          components = {
+            kind_icon = {
+              text = function(ctx)
+                local icon = ctx.kind_icon
+                if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                  local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                  if dev_icon then
+                    icon = dev_icon
+                  end
+                else
+                  icon = require("lspkind").symbolic(ctx.kind, {
+                    mode = "symbol",
+                  })
+                end
 
-		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-		cmp.setup.cmdline(":", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = cmp.config.sources({
-				{ name = "path" },
-			}, {
-				{ name = "cmdline" },
-			}),
-			matching = { disallow_symbol_nonprefix_matching = false },
-		})
-	end,
+                return icon .. ctx.icon_gap
+              end,
+
+              highlight = function(ctx)
+                local hl = ctx.kind_hl
+                if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                  local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+                  if dev_icon then
+                    hl = dev_hl
+                  end
+                end
+                return hl
+              end,
+            },
+          },
+        },
+      },
+    },
+
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+    },
+
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+  },
+  opts_extend = { "sources.default" },
 }

@@ -1,11 +1,6 @@
-require("madyn.remap")
-require("madyn.set")
+require("madyn.options")
+require("madyn.keymaps")
+require("madyn.filetypes")
 
 -- This must be loaded after the remap and set
 require("madyn.lazy")
-
--- For fun
-print("Welcome Back Madyn")
-
--- vim.cmd[[colorscheme tokyonight]]
-vim.cmd[[colorscheme rose-pine]]

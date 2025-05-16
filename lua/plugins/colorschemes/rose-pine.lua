@@ -1,17 +1,17 @@
 return {
-	"rose-pine/neovim",
+  "rose-pine/neovim",
 
   enabled = true,
 
-	name = "rose-pine",
-	priority = 1000,
-	lazy = false,
+  name = "rose-pine",
+  priority = 1000,
+  lazy = false,
 
-	opts = {
-		variant = "main",
-		dark_variant = "main",
-		disable_background = true,
-		disable_float_background = true,
-		-- disable_italics = true,
-	},
+  opts = {
+    variant = "main",
+    dark_variant = "main",
+    disable_background = true,
+    disable_float_background = true,
+    -- disable_italics = true,
+  },
 }
