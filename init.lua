@@ -1,3 +1,5 @@
-require("madyn")
+pcall(function() vim.loader.enable() end)
 
-vim.cmd("colorscheme rose-pine")
+require("config.options")
+require("config.keymaps")
+require("config.lazy")
