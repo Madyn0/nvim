@@ -28,7 +28,6 @@ return {
       disable_hint = true,
       disable_builtin_notifications = true,
       graph_style = "unicode",
-      kind = "floating",
     },
 
     keys = {
