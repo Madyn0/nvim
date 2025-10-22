@@ -62,4 +62,10 @@ return {
     -- load the theme without affecting devicon colors.
     -- vim.cmd.colorscheme "vscode"
   },
+  {
+    "aktersnurra/no-clown-fiesta.nvim"
+  },
+  {
+    "ramojus/mellifluous.nvim"
+  },
 }
