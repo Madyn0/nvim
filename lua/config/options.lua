@@ -28,7 +28,7 @@ o.winborder = 'rounded'
 o.lazyredraw = true
 
 wo.number, wo.relativenumber = true, true
-o.colorcolumn = "80"
+o.colorcolumn = "80,100"
 o.signcolumn = "yes"
 o.splitright, o.splitbelow = true, true
 o.scrolloff, o.sidescrolloff = 6, 6
