@@ -37,6 +37,7 @@ return {
     { "<leader>ht",      function() require("telescope.builtin").help_tags() end },
     { "<leader>mp",      function() require("telescope.builtin").man_pages() end },
     { "<leader><space>", function() require("telescope.builtin").current_buffer_fuzzy_find() end },
+    { "<leader>fc",      function() require("telescope.builtin").colorscheme() end },
   },
 
   config = function(_, opts)
